@@ -310,8 +310,10 @@
             transition: opacity 0.3s ease-in-out;
             opacity: 0;
         }
+        /* IMPORTANT FIX: Ensure display is set to block when 'show' class is present */
         #customMessageBox.show {
             opacity: 1;
+            display: block; /* This line makes the message box visible */
         }
         #customMessageBox.success {
             background-color: #28a745; /* Green */
@@ -730,30 +732,27 @@
                         return;
                     }
 
-                    // If validation passes, submit the form via Formspree
+                    // If validation passes, submit the form via Formcarry
                     const form = event.target;
                     try {
                         const response = await fetch(form.action, {
                             method: form.method,
                             body: new FormData(form), // Use FormData to capture all form fields
                             headers: {
-                                'Accept': 'application/json' // Important for Formspree to return JSON
+                                'Accept': 'application/json' // Important for Formcarry to return JSON
                             }
                         });
 
                         if (response.ok) {
+                            console.log("Form submitted successfully!"); // Log for debugging
                             // Use the translated success message
                             displayMessageBox(translations[localStorage.getItem('userLanguage') || 'en'].formSuccess, "success");
                             form.reset(); // Clear the form fields
                         } else {
-                            // Handle errors from Formspree (e.g., invalid endpoint, rate limiting)
+                            // Handle errors from Formcarry
                             const data = await response.json();
-                            if (data.errors) {
-                                console.error("Formspree errors:", data.errors);
-                                displayMessageBox("An error occurred: " + data.errors.map(err => err.message).join(", "), "error");
-                            } else {
-                                displayMessageBox("An unexpected error occurred during submission.", "error");
-                            }
+                            console.error("Formcarry errors:", data);
+                            displayMessageBox("An error occurred: " + (data.message || "Unknown error"), "error"); // Use data.message if available
                         }
                     } catch (error) {
                         console.error("Network error submitting form:", error);
@@ -779,9 +778,17 @@
 
                 messageBox.textContent = message;
                 messageBox.className = 'message-box ' + type; // Add type class for styling (e.g., 'error', 'success')
-                messageBox.classList.add('show'); // Add 'show' class for fade-in effect
+                
+                // Ensure the message box is visible before adding the 'show' class for transition
+                messageBox.style.display = 'block'; 
+                
+                // Use a small timeout to ensure the 'display: block' renders before 'opacity: 1'
+                // This forces a reflow and ensures the transition works.
+                setTimeout(() => {
+                    messageBox.classList.add('show'); 
+                }, 10); // A very small delay (e.g., 10ms) is often enough
 
-                // Basic styling for the message box
+                // Basic styling for the message box (moved here to apply after class reset)
                 messageBox.style.position = 'fixed';
                 messageBox.style.top = '20px';
                 messageBox.style.left = '50%';
@@ -806,7 +813,7 @@
                 setTimeout(() => {
                     messageBox.classList.remove('show'); // Fade out
                     setTimeout(() => {
-                        messageBox.style.display = 'none'; // Then hide
+                        messageBox.style.display = 'none'; // Then hide completely
                     }, 300); // Match CSS transition duration
                 }, 3000);
             }
