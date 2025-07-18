@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key="pageTitle">DevAThreeFifty</title>
+    <title data-key="pageTitle">DevAThreeFifty - Your Website Partner</title>
     <link rel="icon" href="logo.png">
     <style>
         /* General Body & Container */
@@ -730,25 +730,30 @@
                         return;
                     }
 
-                    // If validation passes, submit the form via Formcarry
+                    // If validation passes, submit the form via Formspree
                     const form = event.target;
                     try {
                         const response = await fetch(form.action, {
                             method: form.method,
                             body: new FormData(form), // Use FormData to capture all form fields
                             headers: {
-                                'Accept': 'application/json' // Important for Formcarry to return JSON
+                                'Accept': 'application/json' // Important for Formspree to return JSON
                             }
                         });
 
                         if (response.ok) {
+                            // Use the translated success message
                             displayMessageBox(translations[localStorage.getItem('userLanguage') || 'en'].formSuccess, "success");
                             form.reset(); // Clear the form fields
                         } else {
-                            // Handle errors from Formcarry
+                            // Handle errors from Formspree (e.g., invalid endpoint, rate limiting)
                             const data = await response.json();
-                            console.error("Formcarry errors:", data);
-                            displayMessageBox("An error occurred: " + (data.message || "Unknown error"), "error"); // Use data.message if available
+                            if (data.errors) {
+                                console.error("Formspree errors:", data.errors);
+                                displayMessageBox("An error occurred: " + data.errors.map(err => err.message).join(", "), "error");
+                            } else {
+                                displayMessageBox("An unexpected error occurred during submission.", "error");
+                            }
                         }
                     } catch (error) {
                         console.error("Network error submitting form:", error);
@@ -808,4 +813,4 @@
         });
     </script>
 </body>
-</h
+</html>
