@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key="pageTitle">DevAThreeFifty</title>
-    <link rel="icon" href="logo.png">
+    <title data-key="pageTitle">DevAThreeFifty - Your Website Partner</title>
     <style>
         /* General Body & Container */
         body {
@@ -392,7 +391,7 @@
     <header>
         <div class="container navbar">
             <a href="#hero" class="logo">
-                <img src="logo.png" alt="DevAThreeFifty Logo"> <!-- Placeholder Logo -->
+                <img src="https://placehold.co/60x60/4a69bd/ffffff?text=LOGO" alt="DevAThreeFifty Logo"> <!-- Placeholder Logo -->
                 DevAThreeFifty
             </a>
             <nav>
@@ -479,7 +478,7 @@
 
     <footer>
         <div class="container">
-            <p data-key="footerText">© 2025 DevAThreeFifty. All rights reserved.</p>
+            <p data-key="footerText">&copy; 2025 DevAThreeFifty. All rights reserved.</p>
         </div>
     </footer>
 
@@ -629,6 +628,8 @@
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.placeholder = currentTranslations[key];
                     } else if (element.tagName === 'OPTION') {
+                        // For options, update textContent only if it's the default or a translatable option
+                        // Ensure the value remains the same for form submission
                         element.textContent = currentTranslations[key];
                     }
                     else {
@@ -786,7 +787,7 @@
                 messageBox.style.padding = '15px 25px';
                 messageBox.style.borderRadius = '8px';
                 messageBox.style.zIndex = '1000';
-                messageBox.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                messageBox.style.box-shadow = '0 4px 15px rgba(0,0,0,0.2)';
                 messageBox.style.color = '#fff';
                 messageBox.style.textAlign = 'center';
                 messageBox.style.fontSize = '1.1rem';
