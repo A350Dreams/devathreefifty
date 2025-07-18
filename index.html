@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="pageTitle">DevAThreeFifty - Your Website Partner</title>
+    <style>
+        /* General Body & Container */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c3e50; /* Dark blue/grey - professional */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Navbar specific styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .navbar .logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex; /* Allows logo image and text to be aligned */
+            align-items: center;
+            gap: 10px; /* Space between logo image and text */
+        }
+
+        .navbar .logo img {
+            height: 60px; /* Adjusted logo height: Increased from 40px to 60px */
+            width: auto;
+            border-radius: 5px; /* Slightly rounded corners for the logo */
+        }
+
+        .navbar nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px; /* Space between nav items */
+        }
+
+        .navbar nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar nav ul li a:hover {
+            color: #6a89cc; /* Lighter professional blue for hover */
+        }
+
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #2c3e50; /* Dark blue/grey for headings */
+            margin-bottom: 25px;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: #4a69bd; /* Professional muted blue */
+            color: #fff;
+            padding: 80px 0;
+        }
+
+        .hero-section h2 {
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: #2ecc71; /* Green - kept as a strong call-to-action color */
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px; /* Pill shape */
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #27ae60; /* Darker green */
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-item {
+            background-color: #fcfcfc;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .service-item h3 {
+            color: #4a69bd; /* Professional muted blue for service headings */
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .service-item p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        /* Form Section */
+        .form-section {
+            background-color: #ecf0f1; /* Light grey */
+            padding-bottom: 80px;
+        }
+
+        #websiteRequestForm {
+            max-width: 700px;
+            margin: 40px auto 0;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: left; /* Align form elements to the left */
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: calc(100% - 24px); /* Account for padding and border */
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .form-group textarea {
+            resize: vertical; /* Allow vertical resizing */
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            border-radius: 8px; /* Slightly less rounded than hero button */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #2c3e50;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            .navbar .logo {
+                margin-bottom: 15px;
+            }
+            .navbar nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero-section h2 {
+                font-size: 2.5rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr; /* Stack services on small screens */
+            }
+
+            #websiteRequestForm {
+                padding: 30px;
+                margin: 30px auto 0;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group select,
+            .form-group textarea {
+                width: calc(100% - 20px); /* Adjust width for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .logo {
+                font-size: 1.8rem;
+            }
+            .navbar nav ul li a {
+                font-size: 1rem;
+            }
+
+            .hero-section h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Custom Message Box Styles */
+        #customMessageBox {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 25px;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: #fff;
+            text-align: center;
+            font-size: 1.1rem;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+        }
+        #customMessageBox.show {
+            opacity: 1;
+        }
+        #customMessageBox.success {
+            background-color: #28a745; /* Green */
+        }
+        #customMessageBox.error {
+            background-color: #dc3545; /* Red */
+        }
+
+        /* Language Selection Modal Styles */
+        .language-modal-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000; /* Higher than other elements */
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .language-modal-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .language-modal-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            color: #333;
+        }
+
+        .language-modal-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .language-modal-content .lang-buttons button {
+            background-color: #4a69bd; /* Professional blue */
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .language-modal-content .lang-buttons button:hover {
+            background-color: #3a539b; /* Darker professional blue */
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selection Modal -->
+    <div id="languageModalOverlay" class="language-modal-overlay">
+        <div class="language-modal-content">
+            <h3 data-key="modalTitle">Please select your language / Veuillez choisir votre langue</h3>
+            <div class="lang-buttons">
+                <button id="langEnglish" data-lang="en">English</button>
+                <button id="langFrench" data-lang="fr">Français</button>
+                <button id="langArabic" data-lang="ar">العربية</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container navbar">
+            <a href="#hero" class="logo">
+                <img src="https://placehold.co/60x60/4a69bd/ffffff?text=LOGO" alt="DevAThreeFifty Logo"> <!-- Placeholder Logo -->
+                DevAThreeFifty
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#hero" data-key="navHome">Home</a></li>
+                    <li><a href="#services" data-key="navServices">Services</a></li>
+                    <li><a href="#request-form" data-key="navQuote">Request a Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <h2 data-key="heroTitle">Need a Website? Let's Build Something Great.</h2>
+                <p data-key="heroDescription">Hi, I'm DevAThreeFifty. I help individuals and businesses establish a strong online presence with custom web solutions. From sleek portfolios to robust business sites, I focus on delivering clean code and user-friendly designs that stand out.</p>
+                <a href="#request-form" class="btn" data-key="heroButton">Request Your Website Quote</a>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 data-key="servicesTitle">What I Can Do For You</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <h3 data-key="service1Title">Custom Website Design</h3>
+                        <p data-key="service1Description">Unique designs tailored to your brand and vision, ensuring a distinct online identity.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3 data-key="service2Title">Responsive Development</h3>
+                        <p data-key="service2Description">Websites that look great and work flawlessly across all devices: desktops, tablets, and mobile phones.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3 data-key="service3Title">Portfolio & Showcase Sites</h3>
+                        <p data-key="service3Description">Effectively display your work, products, or creative projects to attract clients and opportunities.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3 data-key="service4Title">Business & Landing Pages</h3>
+                        <p data-key="service4Description">Convert visitors into customers with targeted, high-performing pages designed for lead generation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="request-form" class="form-section">
+            <div class="container">
+                <h2 data-key="formTitle">Get a Free Website Quote</h2>
+                <p data-key="formDescription">Tell me about your project, and I'll get back to you with a tailored quote and ideas that fit your needs.</p>
+                <!-- Formspree integration: Replace YOUR_FORMSPREE_ENDPOINT with your actual endpoint -->
+                <form id="websiteRequestForm" action="https://formspree.io/f/mzzvzajk" method="POST">
+                    <div class="form-group">
+                        <label for="fullName" data-key="formLabelName">Your Full Name:</label>
+                        <input type="text" id="fullName" name="fullName" required data-key="formPlaceholderName" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress" data-key="formLabelEmail">Your Email:</label>
+                        <input type="email" id="emailAddress" name="_replyto" required data-key="formPlaceholderEmail" placeholder="john.doe@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyName" data-key="formLabelCompany">Company/Project Name (Optional):</label>
+                        <input type="text" id="companyName" name="companyName" data-key="formPlaceholderCompany" placeholder="Acme Corp.">
+                    </div>
+                    <div class="form-group">
+                        <label for="websiteType" data-key="formLabelType">Type of Website Needed:</label>
+                        <select id="websiteType" name="websiteType" required>
+                            <option value="" data-key="formOptionSelect">-- Select Type --</option>
+                            <option value="portfolio" data-key="formOptionPortfolio">Portfolio/Personal Site</option>
+                            <option value="business" data-key="formOptionBusiness">Business Website</option>
+                            <option value="ecommerce" data-key="formOptionEcommerce">E-commerce Store (Basic)</option>
+                            <option value="landing" data-key="formOptionLanding">Landing Page</option>
+                            <option value="other" data-key="formOptionOther">Other (Please specify below)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDetails" data-key="formLabelDetails">Tell me about your project (goals, features, etc.):</label>
+                        <textarea id="projectDetails" name="projectDetails" rows="6" required data-key="formPlaceholderDetails" placeholder="Describe your project here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn submit-btn" data-key="formSubmitBtn">Send Request</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-key="footerText">&copy; 2025 DevAThreeFifty. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Translations object
+        const translations = {
+            en: {
+                pageTitle: "DevAThreeFifty - Your Website Partner",
+                modalTitle: "Please select your language",
+                navHome: "Home",
+                navServices: "Services",
+                navQuote: "Request a Quote",
+                heroTitle: "Need a Website? Let's Build Something Great.",
+                heroDescription: "Hi, I'm DevAThreeFifty. I help individuals and businesses establish a strong online presence with custom web solutions. From sleek portfolios to robust business sites, I focus on delivering clean code and user-friendly designs that stand out.",
+                heroButton: "Request Your Website Quote",
+                servicesTitle: "What I Can Do For You",
+                service1Title: "Custom Website Design",
+                service1Description: "Unique designs tailored to your brand and vision, ensuring a distinct online identity.",
+                service2Title: "Responsive Development",
+                service2Description: "Websites that look great and work flawlessly across all devices: desktops, tablets, and mobile phones.",
+                service3Title: "Portfolio & Showcase Sites",
+                service3Description: "Effectively display your work, products, or creative projects to attract clients and opportunities.",
+                service4Title: "Business & Landing Pages",
+                service4Description: "Convert visitors into customers with targeted, high-performing pages designed for lead generation.",
+                formTitle: "Get a Free Website Quote",
+                formDescription: "Tell me about your project, and I'll get back to you with a tailored quote and ideas that fit your needs.",
+                formLabelName: "Your Full Name:",
+                formPlaceholderName: "John Doe",
+                formLabelEmail: "Your Email:",
+                formPlaceholderEmail: "john.doe@example.com",
+                formLabelCompany: "Company/Project Name (Optional):",
+                formPlaceholderCompany: "Acme Corp.",
+                formLabelType: "Type of Website Needed:",
+                formOptionSelect: "-- Select Type --",
+                formOptionPortfolio: "Portfolio/Personal Site",
+                formOptionBusiness: "Business Website",
+                formOptionEcommerce: "E-commerce Store (Basic)",
+                formOptionLanding: "Landing Page",
+                formOptionOther: "Other (Please specify below)",
+                formLabelDetails: "Tell me about your project (goals, features, etc.):",
+                formPlaceholderDetails: "Describe your project here...",
+                formSubmitBtn: "Send Request",
+                footerText: "&copy; 2025 DevAThreeFifty. All rights reserved.",
+                validationFillAll: "Please fill in all required fields (Name, Email, Website Type, Project Details).",
+                validationValidEmail: "Please enter a valid email address.",
+                formSuccess: "Thank you for your request! DevAThreeFifty will get back to you soon."
+            },
+            fr: {
+                pageTitle: "DevAThreeFifty - Votre Partenaire Web",
+                modalTitle: "Veuillez choisir votre langue",
+                navHome: "Accueil",
+                navServices: "Services",
+                navQuote: "Demander un Devis",
+                heroTitle: "Besoin d'un site web ? Créons quelque chose de génial.",
+                heroDescription: "Bonjour, je suis DevAThreeFifty. J'aide les particuliers et les entreprises à établir une forte présence en ligne avec des solutions web personnalisées. Des portfolios élégants aux sites d'entreprise robustes, je me concentre sur la fourniture d'un code propre et de designs conviviaux qui se démarquent.",
+                heroButton: "Demander votre Devis de Site Web",
+                servicesTitle: "Ce que je peux faire pour vous",
+                service1Title: "Conception de Sites Web Personnalisés",
+                service1Description: "Des designs uniques adaptés à votre marque et à votre vision, garantissant une identité en ligne distincte.",
+                service2Title: "Développement Responsive",
+                service2Description: "Des sites web qui ont fière allure et fonctionnent parfaitement sur tous les appareils : ordinateurs de bureau, tablettes et téléphones mobiles.",
+                service3Title: "Sites de Portfolio et de Présentation",
+                service3Description: "Affichez efficacement votre travail, vos produits ou vos projets créatifs pour attirer des clients et des opportunités.",
+                service4Title: "Pages d'Entreprise et Pages de Destination",
+                service4Description: "Convertissez les visiteurs en clients avec des pages ciblées et performantes conçues pour la génération de leads.",
+                formTitle: "Obtenez un Devis Gratuit pour votre Site Web",
+                formDescription: "Parlez-moi de votre projet, et je vous recontacterai avec un devis personnalisé et des idées adaptées à vos besoins.",
+                formLabelName: "Votre Nom Complet :",
+                formPlaceholderName: "Jean Dupont",
+                formLabelEmail: "Votre E-mail :",
+                formPlaceholderEmail: "jean.dupont@exemple.com",
+                formLabelCompany: "Nom de l'Entreprise/Projet (Facultatif) :",
+                formPlaceholderCompany: "Acme Corp.",
+                formLabelType: "Type de Site Web Nécessaire :",
+                formOptionSelect: "-- Sélectionner le Type --",
+                formOptionPortfolio: "Site Portfolio/Personnel",
+                formOptionBusiness: "Site Web d'Entreprise",
+                formOptionEcommerce: "Boutique E-commerce (Basique)",
+                formOptionLanding: "Page de Destination",
+                formOptionOther: "Autre (Veuillez préciser ci-dessous)",
+                formLabelDetails: "Parlez-moi de votre projet (objectifs, fonctionnalités, etc.) :",
+                formPlaceholderDetails: "Décrivez votre projet ici...",
+                formSubmitBtn: "Envoyer la Demande",
+                footerText: "&copy; 2025 DevAThreeFifty. Tous droits réservés.",
+                validationFillAll: "Veuillez remplir tous les champs obligatoires (Nom, E-mail, Type de Site Web, Détails du Projet).",
+                validationValidEmail: "Veuillez entrer une adresse e-mail valide.",
+                formSuccess: "Merci pour votre demande ! DevAThreeFifty vous recontactera bientôt."
+            },
+            ar: {
+                pageTitle: "ديفاثري فيفتي - شريكك لتصميم المواقع",
+                modalTitle: "الرجاء اختيار لغتك",
+                navHome: "الرئيسية",
+                navServices: "الخدمات",
+                navQuote: "طلب عرض سعر",
+                heroTitle: "هل تحتاج إلى موقع ويب؟ لنبني شيئًا رائعًا.",
+                heroDescription: "مرحباً، أنا ديفاثري فيفتي. أساعد الأفراد والشركات على تأسيس حضور قوي عبر الإنترنت من خلال حلول الويب المخصصة. من محافظ الأعمال الأنيقة إلى مواقع الشركات القوية، أركز على تقديم أكواد نظيفة وتصاميم سهلة الاستخدام تبرز عن المنافسين.",
+                heroButton: "اطلب عرض سعر لموقعك",
+                servicesTitle: "ماذا يمكنني أن أفعل لك",
+                service1Title: "تصميم مواقع ويب مخصصة",
+                service1Description: "تصاميم فريدة مصممة خصيصًا لعلامتك التجارية ورؤيتك، مما يضمن هوية مميزة عبر الإنترنت.",
+                service2Title: "تطوير متجاوب",
+                service2Description: "مواقع ويب تبدو رائعة وتعمل بسلاسة على جميع الأجهزة: أجهزة الكمبيوتر المكتبية والأجهزة اللوحية والهواتف المحمولة.",
+                service3Title: "مواقع عرض الأعمال والمشاريع",
+                service3Description: "اعرض أعمالك أو منتجاتك أو مشاريعك الإبداعية بفعالية لجذب العملاء والفرص.",
+                service4Title: "صفحات الأعمال والصفحات المقصودة",
+                service4Description: "حوّل الزوار إلى عملاء باستخدام صفحات مستهدفة وعالية الأداء مصممة لتوليد العملاء المحتملين.",
+                formTitle: "احصل على عرض سعر مجاني لموقعك",
+                formDescription: "أخبرني عن مشروعك، وسأعود إليك بعرض سعر مخصص وأفكار تناسب احتياجاتك.",
+                formLabelName: "اسمك الكامل:",
+                formPlaceholderName: "جون دو",
+                formLabelEmail: "بريدك الإلكتروني:",
+                formPlaceholderEmail: "john.doe@example.com",
+                formLabelCompany: "اسم الشركة/المشروع (اختياري):",
+                formPlaceholderCompany: "شركة Acme",
+                formLabelType: "نوع الموقع المطلوب:",
+                formOptionSelect: "-- اختر النوع --",
+                formOptionPortfolio: "موقع شخصي/معرض أعمال",
+                formOptionBusiness: "موقع أعمال",
+                formOptionEcommerce: "متجر إلكتروني (أساسي)",
+                formOptionLanding: "صفحة هبوط",
+                formOptionOther: "أخرى (يرجى التحديد أدناه)",
+                formLabelDetails: "أخبرني عن مشروعك (الأهداف، الميزات، إلخ):",
+                formPlaceholderDetails: "صف مشروعك هنا...",
+                formSubmitBtn: "إرسال الطلب",
+                footerText: "&copy; 2025 ديفاثري فيفتي. جميع الحقوق محفوظة.",
+                validationFillAll: "الرجاء ملء جميع الحقول المطلوبة (الاسم، البريد الإلكتروني، نوع الموقع، تفاصيل المشروع).",
+                validationValidEmail: "الرجاء إدخال عنوان بريد إلكتروني صالح.",
+                formSuccess: "شكراً لطلبك! سيتواصل معك ديفاثري فيفتي قريباً."
+            }
+        };
+
+        // Function to set the language of the page
+        function setLanguage(lang) {
+            const currentTranslations = translations[lang];
+            if (!currentTranslations) {
+                console.error("Translations not found for language:", lang);
+                return;
+            }
+
+            // Set page title
+            document.querySelector('title').textContent = currentTranslations.pageTitle;
+
+            // Set text content for elements with data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.dataset.key;
+                if (currentTranslations[key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = currentTranslations[key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = currentTranslations[key];
+                    }
+                    else {
+                        element.textContent = currentTranslations[key];
+                    }
+                }
+            });
+
+            // Handle RTL for Arabic
+            if (lang === 'ar') {
+                document.body.dir = 'rtl';
+                document.body.style.textAlign = 'right'; // Adjust text alignment for RTL
+                // Adjust form labels for RTL if needed (they are block by default, so should align with text-align)
+                document.querySelectorAll('.form-group label').forEach(label => {
+                    label.style.textAlign = 'right';
+                });
+            } else {
+                document.body.dir = 'ltr';
+                document.body.style.textAlign = 'left'; // Reset text alignment for LTR
+                document.querySelectorAll('.form-group label').forEach(label => {
+                    label.style.textAlign = 'left';
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Language Selection Modal Logic
+            const languageModalOverlay = document.getElementById('languageModalOverlay');
+            const langEnglishBtn = document.getElementById('langEnglish');
+            const langFrenchBtn = document.getElementById('langFrench');
+            const langArabicBtn = document.getElementById('langArabic');
+
+            // Check if language has already been selected
+            const selectedLanguage = localStorage.getItem('userLanguage');
+            if (!selectedLanguage) {
+                // If not selected, show the modal
+                languageModalOverlay.classList.add('show');
+            } else {
+                // If already selected, apply language settings and hide modal
+                setLanguage(selectedLanguage);
+                languageModalOverlay.style.display = 'none'; // Instantly hide if already selected
+            }
+
+            // Event listeners for language selection buttons
+            langEnglishBtn.addEventListener('click', () => {
+                localStorage.setItem('userLanguage', 'en');
+                setLanguage('en');
+                languageModalOverlay.classList.remove('show');
+                setTimeout(() => languageModalOverlay.style.display = 'none', 300); // Hide after transition
+            });
+
+            langFrenchBtn.addEventListener('click', () => {
+                localStorage.setItem('userLanguage', 'fr');
+                setLanguage('fr');
+                languageModalOverlay.classList.remove('show');
+                setTimeout(() => languageModalOverlay.style.display = 'none', 300); // Hide after transition
+            });
+
+            langArabicBtn.addEventListener('click', () => {
+                localStorage.setItem('userLanguage', 'ar');
+                setLanguage('ar');
+                languageModalOverlay.classList.remove('show');
+                setTimeout(() => languageModalOverlay.style.display = 'none', 300); // Hide after transition
+            });
+
+
+            // Smooth scrolling for all anchor links (including navbar and hero button)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default anchor jump
+                    const targetId = this.getAttribute('href');
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Handle form submission
+            const websiteRequestForm = document.getElementById('websiteRequestForm');
+            if (websiteRequestForm) {
+                websiteRequestForm.addEventListener('submit', async function(event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    // Perform client-side validation first
+                    const fullName = document.getElementById('fullName').value.trim();
+                    const emailAddress = document.getElementById('emailAddress').value.trim();
+                    const websiteType = document.getElementById('websiteType').value;
+                    const projectDetails = document.getElementById('projectDetails').value.trim();
+
+                    if (!fullName || !emailAddress || !websiteType || !projectDetails) {
+                        displayMessageBox(translations[localStorage.getItem('userLanguage') || 'en'].validationFillAll, "error");
+                        return;
+                    }
+
+                    if (!validateEmail(emailAddress)) {
+                        displayMessageBox(translations[localStorage.getItem('userLanguage') || 'en'].validationValidEmail, "error");
+                        return;
+                    }
+
+                    // If validation passes, submit the form via Formspree
+                    const form = event.target;
+                    try {
+                        const response = await fetch(form.action, {
+                            method: form.method,
+                            body: new FormData(form), // Use FormData to capture all form fields
+                            headers: {
+                                'Accept': 'application/json' // Important for Formspree to return JSON
+                            }
+                        });
+
+                        if (response.ok) {
+                            displayMessageBox(translations[localStorage.getItem('userLanguage') || 'en'].formSuccess, "success");
+                            form.reset(); // Clear the form fields
+                        } else {
+                            // Handle errors from Formspree (e.g., invalid endpoint, rate limiting)
+                            const data = await response.json();
+                            if (data.errors) {
+                                console.error("Formspree errors:", data.errors);
+                                displayMessageBox("An error occurred: " + data.errors.map(err => err.message).join(", "), "error");
+                            } else {
+                                displayMessageBox("An unexpected error occurred during submission.", "error");
+                            }
+                        }
+                    } catch (error) {
+                        console.error("Network error submitting form:", error);
+                        displayMessageBox("Network error. Please try again later.", "error");
+                    }
+                });
+            }
+
+            // Email validation helper function
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            // Custom Message Box Function (instead of alert())
+            function displayMessageBox(message, type) {
+                let messageBox = document.getElementById('customMessageBox');
+                if (!messageBox) {
+                    messageBox = document.createElement('div');
+                    messageBox.id = 'customMessageBox';
+                    document.body.appendChild(messageBox);
+                }
+
+                messageBox.textContent = message;
+                messageBox.className = 'message-box ' + type; // Add type class for styling (e.g., 'error', 'success')
+                messageBox.classList.add('show'); // Add 'show' class for fade-in effect
+
+                // Basic styling for the message box
+                messageBox.style.position = 'fixed';
+                messageBox.style.top = '20px';
+                messageBox.style.left = '50%';
+                messageBox.style.transform = 'translateX(-50%)';
+                messageBox.style.padding = '15px 25px';
+                messageBox.style.borderRadius = '8px';
+                messageBox.style.zIndex = '1000';
+                messageBox.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                messageBox.style.color = '#fff';
+                messageBox.style.textAlign = 'center';
+                messageBox.style.fontSize = '1.1rem';
+
+                if (type === 'success') {
+                    messageBox.style.backgroundColor = '#28a745'; /* Green */
+                } else if (type === 'error') {
+                    messageBox.style.backgroundColor = '#dc3545'; /* Red */
+                } else {
+                    messageBox.style.backgroundColor = '#4a69bd'; /* Professional blue default */
+                }
+
+                // Hide the message box after 3 seconds
+                setTimeout(() => {
+                    messageBox.classList.remove('show'); // Fade out
+                    setTimeout(() => {
+                        messageBox.style.display = 'none'; // Then hide
+                    }, 300); // Match CSS transition duration
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
